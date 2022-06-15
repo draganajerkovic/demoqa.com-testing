@@ -1,4 +1,4 @@
-package ElementsPages;
+package elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,7 +44,7 @@ public class RadioButtonPage extends BasePage{
         getDriver().findElement(noRadio).click();
     }
 
-
+//asert metode za pojavu teksta nakon checkiranja dugmeta
     public String yesMessage(){
         return getDriver().findElement(messageYes).getText();
     }
@@ -53,7 +53,18 @@ public class RadioButtonPage extends BasePage{
         return getDriver().findElement(messageImpressive).getText();
     }
 
+    //asert da NO nije clickable
     public boolean noNotClickable(){
         return getDriver().findElement(noRadio).isEnabled();
+    }
+
+    //assert da kad izaberemo yes drugo dugme nije izabrano
+    public boolean impressiveNotSelectedWhenClickedOnYes(){
+        return getDriver().findElement(impressiveRadio).isSelected();
+    }
+
+    //assert da kad izaberemo impressive drugo dugme nije izabrano
+    public boolean yesNotSelectedWhenClickedOnImpressive(){
+        return getDriver().findElement(yesRadio).isSelected();
     }
 }

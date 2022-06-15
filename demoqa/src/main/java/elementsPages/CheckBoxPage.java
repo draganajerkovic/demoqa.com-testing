@@ -1,4 +1,4 @@
-package ElementsPages;
+package elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +12,9 @@ public class CheckBoxPage extends BasePage{
     private By textResult=By.id("result");
 
     private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
+    private By plus=By.xpath("//*[@id=\"tree-node\"]/div/button[1]");
+    private By commands=By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[2]/span/label");
 
     public CheckBoxPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
@@ -46,4 +49,16 @@ public class CheckBoxPage extends BasePage{
         getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(textResult));
         return getDriver().findElement(textResult).getText();
     }
+
+
+    //metode za izbor samo jedne opcije
+    public void clickOnPlus(){
+        getDriver().findElement(plus).click();
+    }
+
+    public void clickOnCommands(){
+        getDriver().findElement(commands).click();
+    }
+
+
 }
