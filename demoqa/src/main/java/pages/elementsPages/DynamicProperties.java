@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DynamicProperties extends BasePage{
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
     private By dynamicElementsMenu=By.id("item-8");
 
     private By buttonEnableAfter5=By.id("enableAfter");
@@ -18,9 +18,6 @@ public class DynamicProperties extends BasePage{
         super(driver, driverWait);
     }
 
-    public void clickOnElements(){
-        getDriver().findElement(elementsButton).click();
-    }
 
     public void clickOnDynamicElementsFromMenu(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();

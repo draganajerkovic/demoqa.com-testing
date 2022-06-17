@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import elementsPages.*;
+import pages.elementsPages.*;
 
 import java.time.Duration;
 @Getter
@@ -22,6 +22,7 @@ public class BaseTests {
     private BrokenLinksImages brokenLinksImages;
     private UploadAndDownload uploadAndDownload;
     private DynamicProperties dynamicProperties;
+    private BasePage basePage;
 
 
 
@@ -42,12 +43,14 @@ public class BaseTests {
         uploadAndDownload=new UploadAndDownload(driver,driverWait);
         dynamicProperties=new DynamicProperties(driver,driverWait);
 
+        basePage=new BasePage(driver,driverWait);
+
     }
 
     @BeforeMethod
     public void beforeMethod(){
         driver.navigate().to("https://demoqa.com/");
-//        driver.navigate().refresh();
+        basePage.clickOnElements();
     }
 
 

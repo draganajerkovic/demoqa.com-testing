@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RadioButtonPage extends BasePage{
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
     private By radioButtonMenu=By.id("item-2");
     private By yesRadio=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/label");
     private By impressiveRadio=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[3]/label");
@@ -24,9 +24,7 @@ public class RadioButtonPage extends BasePage{
 
     //metode za klik na razlicite opcije
 
-    public void clickElementsButton(){
-        getDriver().findElement(elementsButton).click();
-    }
+
     public void chooseRadioFromMenu(){
         getDriver().findElement(radioButtonMenu).click();
     }

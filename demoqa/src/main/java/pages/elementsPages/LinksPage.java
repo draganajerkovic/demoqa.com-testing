@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LinksPage extends BasePage{
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
     private By links= By.id("item-5");
     private By homeLink=By.id("simpleLink");
     private By created=By.id("created");
@@ -19,9 +19,7 @@ public class LinksPage extends BasePage{
     }
 
 
-    public void clickOnElements(){
-        getDriver().findElement(elementsButton).click();
-    }
+
     public void clickOnLinks(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,150)", "");
@@ -35,9 +33,16 @@ public class LinksPage extends BasePage{
     }
 
     //ispitivanje da li je novi tab odvojen
-    public String assertNewTabOpen(){
+    public String assertNewTabOpen() {
+        String currentWindow = getDriver().getWindowHandle();
         getDriverWait().until(ExpectedConditions.numberOfWindowsToBe(2));
-        getDriverWait().until(ExpectedConditions.urlToBe("https://demoqa.com/"));
+
+        for (String windowHandle : getDriver().getWindowHandles()) {
+            if (!currentWindow.contentEquals(windowHandle)) {
+                getDriver().switchTo().window(windowHandle);
+
+            }
+        }
         return getDriver().getCurrentUrl();
     }
 

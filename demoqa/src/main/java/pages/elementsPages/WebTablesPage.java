@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebTablesPage extends BasePage{
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
 
     private By webTablesMenu=By.id("item-3");
     private By addButton=By.id("addNewRecordButton");
@@ -29,9 +28,7 @@ public class WebTablesPage extends BasePage{
     }
 
 
-    public void clickElementsButton(){
-        getDriver().findElement(elementsButton).click();
-    }
+
     public void clickOnWebTablesMenu(){
         getDriver().findElement(webTablesMenu).click();
     }

@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,6 @@ public class CheckBoxPage extends BasePage{
     private By checkBox=By.xpath("//*[@id=\"tree-node\"]/ol/li/span/label");
     private By textResult=By.id("result");
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
 
     private By plus=By.xpath("//*[@id=\"tree-node\"]/div/button[1]");
     private By commands=By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[2]/span/label");
@@ -21,9 +20,7 @@ public class CheckBoxPage extends BasePage{
     }
     //metoda za klik opcije iz menija
 
-    public void clickElementsButton(){
-        getDriver().findElement(elementsButton).click();
-    }
+
     public void clickOnCheckBoxMenu(){
         getDriver().findElement(checkBoxMenu).click();
     }
@@ -39,7 +36,7 @@ public class CheckBoxPage extends BasePage{
 
     //objedinjene metode
     public void completeClicks(){
-        clickElementsButton();
+//        clickElementsButton();
         clickOnCheckBoxMenu();
         clickOnCheckBoxButton();
     }

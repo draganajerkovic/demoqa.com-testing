@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,9 +7,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class ButtonsPage extends BasePage{
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
     private By buttonsFromMenu=By.xpath("//*[@id=\"item-4\"]");
     private By doubleClickButton=By.id("doubleClickBtn");
     private By rightClickButton=By.id("rightClickBtn");
@@ -26,9 +28,6 @@ public class ButtonsPage extends BasePage{
     Actions a=new Actions(getDriver());
 
 
-    public void clickElementsButton(){
-        getDriver().findElement(elementsButton).click();
-    }
 
     public void clickButtonsFromMenu(){
 
@@ -38,15 +37,18 @@ public class ButtonsPage extends BasePage{
 
     }
     public void clickDoubleclick(){
-        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(doubleClickButton));
+        getDriverWait().until(ExpectedConditions.elementToBeClickable(doubleClickButton));
         a.doubleClick(getDriver().findElement(doubleClickButton) ).perform();
     }
 
     public void clickRightClick(){
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        getDriverWait().until(ExpectedConditions.elementToBeClickable(rightClickButton));
         a.contextClick(getDriver().findElement(rightClickButton)).perform();
     }
 
     public void clickButton(){
+        getDriverWait().until(ExpectedConditions.elementToBeClickable(clickMeButton));
         a.click(getDriver().findElement(clickMeButton)).perform();
     }
 

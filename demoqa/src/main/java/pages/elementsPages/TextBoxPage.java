@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TextBoxPage extends  BasePage{
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
     private By textBoxMenu=By.id("item-0");
 
     private By firstName=By.id("userName");
@@ -30,18 +30,13 @@ public class TextBoxPage extends  BasePage{
         super(driver, driverWait);
     }
 
-    public void clickElementsButton(){
-        getDriver().findElement(elementsButton).click();
-    }
+
 
     public void clickTextBoxFromMenu(){
         getDriver().findElement(textBoxMenu).click();
     }
 
-    public void getToForm(){
-        clickElementsButton();
-        clickTextBoxFromMenu();
-    }
+
 
     public void enterFirstName(String firstName){
         getDriver().findElement(this.firstName).sendKeys(firstName);

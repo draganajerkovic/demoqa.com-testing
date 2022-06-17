@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BrokenLinksImages extends BasePage {
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
 
     private By brknLnkImg=By.xpath("//*[@id=\"item-6\"]");
     private By validLink = By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/a[1]");
@@ -19,9 +18,7 @@ public class BrokenLinksImages extends BasePage {
         super(driver, driverWait);
     }
 
-    public void clickOnElements(){
-        getDriver().findElement(elementsButton).click();
-    }
+
 
     public void clickOnBrokenLinksImages(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();

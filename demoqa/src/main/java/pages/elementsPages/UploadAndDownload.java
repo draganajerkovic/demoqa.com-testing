@@ -1,4 +1,4 @@
-package elementsPages;
+package pages.elementsPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,7 +9,7 @@ import java.io.File;
 
 public class UploadAndDownload extends BasePage{
 
-    private By elementsButton=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
+
     private By uploadDownloadFromMenu=By.id("item-7");
     private By downloadButton=By.id("downloadButton");
     private By uploadButtton=By.id("uploadFile");
@@ -25,9 +25,6 @@ public class UploadAndDownload extends BasePage{
         super(driver, driverWait);
     }
 
-    public void clickOnElements(){
-        getDriver().findElement(elementsButton).click();
-    }
 
     public void clickOnUploadDOwnloadFromMenu(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
