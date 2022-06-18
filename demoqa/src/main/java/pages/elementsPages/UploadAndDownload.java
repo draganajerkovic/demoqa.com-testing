@@ -26,7 +26,7 @@ public class UploadAndDownload extends BasePage{
     }
 
 
-    public void clickOnUploadDOwnloadFromMenu(){
+    public void clickOnUploadDownloadFromMenu(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,250)", "");
         getDriver().findElement(uploadDownloadFromMenu).click();

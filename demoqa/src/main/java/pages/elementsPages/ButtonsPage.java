@@ -22,6 +22,8 @@ public class ButtonsPage extends BasePage{
     private By rightClickMessage=By.id("rightClickMessage");
     private By dynamicClickMessage=By.id("dynamicClickMessage");
 
+    private By googleAdd=By.xpath("/html/body/div[2]/div/div/div[2]/div");
+
     public ButtonsPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
@@ -37,18 +39,20 @@ public class ButtonsPage extends BasePage{
 
     }
     public void clickDoubleclick(){
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(doubleClickButton));
+
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         a.doubleClick(getDriver().findElement(doubleClickButton) ).perform();
     }
 
     public void clickRightClick(){
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(rightClickButton));
+//        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+//        getDriverWait().until(ExpectedConditions.elementToBeClickable(rightClickButton));
         a.contextClick(getDriver().findElement(rightClickButton)).perform();
     }
 
     public void clickButton(){
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(clickMeButton));
+//        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
+//        getDriverWait().until(ExpectedConditions.textToBe(clickMeButton,"Click Me"));
         a.click(getDriver().findElement(clickMeButton)).perform();
     }
 

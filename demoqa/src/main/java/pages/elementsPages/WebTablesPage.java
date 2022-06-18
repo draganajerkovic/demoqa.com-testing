@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class WebTablesPage extends BasePage{
 
 
@@ -21,6 +23,8 @@ public class WebTablesPage extends BasePage{
     private By submitButton=By.id("submit");
 
     private By newTableRow=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]/div");
+
+//    private By deleteButton=By.id("delete-record-1");
 
 
     public WebTablesPage(WebDriver driver, WebDriverWait driverWait) {
@@ -80,4 +84,12 @@ public class WebTablesPage extends BasePage{
         return getDriver().findElement(newTableRow).getText();
     }
 
+
+//    public void deleteUser(){
+//        getDriver().findElement(deleteButton).click();
+//    }
+//
+//    public Boolean userNotInTable(){
+//        return getDriver().findElement(deleteButton).isDisplayed();
+//    }
 }

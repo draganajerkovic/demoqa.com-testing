@@ -70,26 +70,21 @@ public class TextBoxPage extends  BasePage{
     }
 
     // metode za ispitivanje da li se unet tekst iz svih polja pojavljuje nakon submit button click
-    public boolean nameSummary(){
-        return getDriver().findElement(By.id("output")).getText().contains(getDriver().findElement(firstName).getText());
+    public String nameSummary(){
+        return getDriver().findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[1]")).getText();
     }
 
-    public boolean emailSummary(){
-        return getDriver().findElement(By.id("output")).getText().contains(getDriver().findElement(email).getText());
+    public String emailSummary(){
+        return getDriver().findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[2]")).getText();
     }
 
-    public boolean currentAddressSummary(){
-        return getDriver().findElement(By.id("output")).getText().contains(getDriver().findElement(currentAddress).getText());
+    public String currentAddressSummary(){
+        return getDriver().findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[3]")).getText();
     }
 
-    public boolean permanentAddressSummary(){
-        return getDriver().findElement(By.id("output")).getText().contains(getDriver().findElement(permanentAddress).getText());
+    public String permanentAddressSummary(){
+        return getDriver().findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[4]")).getText();
     }
 
-    public boolean allSummary(){
-        if(nameSummary() && emailSummary() && currentAddressSummary() && permanentAddressSummary()) {
-            return true;
-        }
-        return false;
-    }
+
 }

@@ -9,7 +9,10 @@ public class ElementsTests extends BaseTests{
         getTextBoxPage().clickTextBoxFromMenu();
         getTextBoxPage().allData("Marko","bla@gmail.com","Morocco","Seychelles");
         getTextBoxPage().clickSubmit();
-        Assert.assertTrue(getTextBoxPage().allSummary());
+        Assert.assertEquals(getTextBoxPage().nameSummary(),"Name:Marko");
+        Assert.assertEquals(getTextBoxPage().emailSummary(),"Email:bla@gmail.com");
+        Assert.assertEquals(getTextBoxPage().currentAddressSummary(),"Current Address :Morocco");
+        Assert.assertEquals(getTextBoxPage().permanentAddressSummary(),"Permananet Address :Seychelles");
     }
 
     @Test(priority = 2)
@@ -41,7 +44,7 @@ public class ElementsTests extends BaseTests{
     }
 
     @Test(priority = 5)
-    public void webTablesTest(){
+    public void addToWebTablesTest(){
         getWebTablesPage().clickOnWebTablesMenu();
         getWebTablesPage().clickOnAddButton();
         getWebTablesPage().fillInAll("David","Budd","db@gmail.com","35","10000","security");
@@ -49,54 +52,44 @@ public class ElementsTests extends BaseTests{
         Assert.assertEquals(getWebTablesPage().textNewTableRow(),"David\n"+"Budd\n"+"35\n"+"db@gmail.com\n"+"10000\n"+"security");
     }
 
-    @Test(priority = 9)
-    public void buttonsDoubleClickTest(){
-        getButtonsPage().clickButtonsFromMenu();
-        getButtonsPage().clickDoubleclick();
-        Assert.assertEquals(getButtonsPage().getMessageAfterDoubleClick(),"You have done a double click");
-    }
 
-    @Test(priority = 10)
-    public void buttonsRightClickTest(){
-        getButtonsPage().clickButtonsFromMenu();
-        getButtonsPage().clickRightClick();
-        Assert.assertEquals(getButtonsPage().getMessageAfterRightClick(),"You have done a right click");
-    }
 
-    @Test(priority = 11)
-    public void buttonsRegularClickTest(){
-        getButtonsPage().clickButtonsFromMenu();
-        getButtonsPage().clickButton();
-        Assert.assertEquals(getButtonsPage().getMessageAfterDynamicClick(),"You have done a dynamic click");
+    @Test(priority = 6)
+    public void allButtonsTest(){
+            getButtonsPage().clickButtonsFromMenu();
+            getButtonsPage().clickAll();
+            Assert.assertEquals(getButtonsPage().getMessageAfterDoubleClick(),"You have done a double click");
+            Assert.assertEquals(getButtonsPage().getMessageAfterRightClick(),"You have done a right click");
+            Assert.assertEquals(getButtonsPage().getMessageAfterDynamicClick(),"You have done a dynamic click");
     }
 
 
 
-    @Test(priority = 12)
+    @Test(priority = 7)
     public void linksNewTabTest(){
 
         getLinksPage().clickOnLinks();
         getLinksPage().clickOnHomeLink();
-        Assert.assertEquals(getLinksPage().assertNewTabOpen(),"https://demoqa.com/");
+        Assert.assertEquals(getLinksPage().assertNewTabOpen(),getLinksPage().website);
     }
 
 
-    @Test(priority = 13)
+    @Test(priority = 8)
     public void linksApiTest(){
         getLinksPage().clickOnLinks();
         getLinksPage().clickOnCreate();
         Assert.assertEquals(getLinksPage().apiCallText(),"Link has responded with staus 201 and status text Created");
     }
 
-    @Test(priority = 14)
+    @Test(priority = 9)
     public void validLinkTest(){
         getBrokenLinksImages().clickOnBrokenLinksImages();
         getBrokenLinksImages().clickValidLink();
-        Assert.assertEquals(getBrokenLinksImages().getUrl(),"https://demoqa.com/");
+        Assert.assertEquals(getBrokenLinksImages().getUrl(),getLinksPage().website);
     }
 
 
-    @Test(priority = 15)
+    @Test(priority = 10)
     public void brokenLinkTest(){
         getBrokenLinksImages().clickOnBrokenLinksImages();
         getBrokenLinksImages().clickBrokenLink();
@@ -104,34 +97,30 @@ public class ElementsTests extends BaseTests{
                 "This page returned a 500 status code.\n" + "\n" +
                 "For a definition and common list of HTTP status codes, go here");
     }
-//test za download
 
-//    @Test(priority = 16)
-//        public void downloadTest(){
-//
-//        }
 
-    @Test(priority = 17)
+
+    @Test(priority = 11)
     public void uploadTest(){
-        getUploadAndDownload().clickOnUploadDOwnloadFromMenu();
+        getUploadAndDownload().clickOnUploadDownloadFromMenu();
         getUploadAndDownload().clickOnUpload();
         Assert.assertEquals(getUploadAndDownload().getTextAfterUpload(),"C:\\fakepath\\sampleFile.jpeg");
     }
 
-    @Test(priority = 18)
+    @Test(priority = 12)
     public void buttonEnabledAfter5Seconds(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
         getDynamicProperties().clickOnButtonAfter5();
         Assert.assertTrue(getDynamicProperties().assertClickAfter5());
     }
 
-    @Test(priority = 19)
+    @Test(priority = 13)
     public void buttonChangedColor(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
         Assert.assertEquals(getDynamicProperties().buttonChangeColors(),"mt-4 text-danger btn btn-primary");
     }
 
-    @Test(priority = 20)
+    @Test(priority = 14)
     public void buttonVisibleAfter5Seconds(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
         Assert.assertTrue(getDynamicProperties().clickOnButtonAfter5Seconds());

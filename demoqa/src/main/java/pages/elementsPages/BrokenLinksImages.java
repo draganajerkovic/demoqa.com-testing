@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class BrokenLinksImages extends BasePage {
 
 
@@ -30,6 +32,7 @@ public class BrokenLinksImages extends BasePage {
     }
 
     public void clickBrokenLink(){
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         getDriver().findElement(brokenLink).click();
     }
 
@@ -38,6 +41,7 @@ public class BrokenLinksImages extends BasePage {
     }
 
     public String textAfterBrokenClick(){
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         return getDriver().findElement(textBroken).getText();
     }
 }

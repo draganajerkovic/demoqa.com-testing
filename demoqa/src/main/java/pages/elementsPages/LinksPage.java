@@ -6,8 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class LinksPage extends BasePage{
 
+    public String website="https://demoqa.com/";
 
     private By links= By.id("item-5");
     private By homeLink=By.id("simpleLink");
@@ -28,8 +31,10 @@ public class LinksPage extends BasePage{
 
     public void clickOnHomeLink(){
 
-        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(homeLink));
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         getDriver().findElement(homeLink).click();
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
     //ispitivanje da li je novi tab odvojen
@@ -48,7 +53,9 @@ public class LinksPage extends BasePage{
 
     //ispitivanje da li linkovi salju api call
     public void clickOnCreate(){
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         getDriver().findElement(created).click();
+        getDriverWait().until(ExpectedConditions.textToBe(apiCall,"Link has responded with staus 201 and status text Created"));
     }
 
     public String apiCallText(){
