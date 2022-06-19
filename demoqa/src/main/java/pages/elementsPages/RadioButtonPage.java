@@ -22,31 +22,30 @@ public class RadioButtonPage extends BasePage{
     }
 
 
-    //metode za klik na razlicite opcije
-
-
+    //metode za klik na radio iz Elements menija
     public void chooseRadioFromMenu(){
         getDriver().findElement(radioButtonMenu).click();
     }
 
+    //metoda za klik na yes button
     public void clickOnYes(){
         getDriverWait().until(ExpectedConditions.elementToBeClickable(yesRadio));
         getDriver().findElement(yesRadio).click();
     }
 
+    //metoda za klik na impressive button
     public void clickOnImpressive(){
         getDriver().findElement(impressiveRadio).click();
     }
 
-    public void clickOnNo(){
-        getDriver().findElement(noRadio).click();
-    }
 
-//asert metode za pojavu teksta nakon checkiranja dugmeta
+
+//asert metode za pojavu teksta nakon checkiranja dugmeta Yes
     public String yesMessage(){
         return getDriver().findElement(messageYes).getText();
     }
 
+    // asert nakon checkiranja dugmeta Impressive
     public String impressiveMessage(){
         return getDriver().findElement(messageImpressive).getText();
     }

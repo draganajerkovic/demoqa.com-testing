@@ -24,7 +24,7 @@ public class WebTablesPage extends BasePage{
 
     private By newTableRow=By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]/div");
 
-//    private By deleteButton=By.id("delete-record-1");
+
 
 
     public WebTablesPage(WebDriver driver, WebDriverWait driverWait) {
@@ -32,15 +32,17 @@ public class WebTablesPage extends BasePage{
     }
 
 
-
+// izbor opcije Web tables iz Elements menija
     public void clickOnWebTablesMenu(){
         getDriver().findElement(webTablesMenu).click();
     }
 
+    //klik na Add button
     public void clickOnAddButton(){
         getDriver().findElement(addButton).click();
     }
 
+    // metode za pojedinacno popunjavanje podataka
     public void fillInFirstName(String name){
 
         getDriver().findElement(this.firstName).sendKeys(name);
@@ -66,6 +68,8 @@ public class WebTablesPage extends BasePage{
         getDriver().findElement(this.department).sendKeys(department);
     }
 
+
+    // metoda za popunjavanje svih podataka zajedno
     public void fillInAll(String firstName, String lastName, String email, String age,String salary, String department){
         fillInFirstName(firstName);
         fillInLastName(lastName);
@@ -76,20 +80,16 @@ public class WebTablesPage extends BasePage{
     }
 
 
+    //klik na dugme submit
     public void clickSubmit(){
         getDriver().findElement(submitButton).click();
     }
 
+    // asert da postoji novi unos u tabeli sa izabranim podacima
     public String textNewTableRow(){
         return getDriver().findElement(newTableRow).getText();
     }
 
 
-//    public void deleteUser(){
-//        getDriver().findElement(deleteButton).click();
-//    }
-//
-//    public Boolean userNotInTable(){
-//        return getDriver().findElement(deleteButton).isDisplayed();
-//    }
+
 }

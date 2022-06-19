@@ -22,13 +22,15 @@ public class LinksPage extends BasePage{
     }
 
 
-
+// metoda za klik na links iz Elements opcije
     public void clickOnLinks(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,150)", "");
         getDriver().findElement(links).click();
     }
 
+
+    // metoda za klik na Home link
     public void clickOnHomeLink(){
 
         getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
@@ -58,6 +60,7 @@ public class LinksPage extends BasePage{
         getDriverWait().until(ExpectedConditions.textToBe(apiCall,"Link has responded with staus 201 and status text Created"));
     }
 
+    // text koji se pojavi nakon poslatog api call
     public String apiCallText(){
         return getDriver().findElement(apiCall).getText();
     }

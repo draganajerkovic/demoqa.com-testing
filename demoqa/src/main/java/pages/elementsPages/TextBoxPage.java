@@ -31,12 +31,13 @@ public class TextBoxPage extends  BasePage{
     }
 
 
-
+//klik na text Box opciju iz Elements menija
     public void clickTextBoxFromMenu(){
         getDriver().findElement(textBoxMenu).click();
     }
 
 
+    //metode za unos pojedinacnih podataka
 
     public void enterFirstName(String firstName){
         getDriver().findElement(this.firstName).sendKeys(firstName);
@@ -54,12 +55,15 @@ public class TextBoxPage extends  BasePage{
         getDriver().findElement(this.permanentAddress).sendKeys(permanentAddress);
     }
 
+    //metoda za klik na submit
+
     public void clickSubmit(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,350)", "");
         getDriver().findElement(submitButton).click();
     }
 
+    //zajednicka metoda za unos svih podataka
 
     public void allData(String name, String email, String cAddress, String pAddress){
         enterFirstName(name);

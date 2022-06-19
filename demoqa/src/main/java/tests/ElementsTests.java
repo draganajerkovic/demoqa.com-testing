@@ -108,22 +108,35 @@ public class ElementsTests extends BaseTests{
     }
 
     @Test(priority = 12)
-    public void buttonEnabledAfter5Seconds(){
+    public void firstButtonEnabledAfter5Seconds(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
         getDynamicProperties().clickOnButtonAfter5();
         Assert.assertTrue(getDynamicProperties().assertClickAfter5());
     }
 
     @Test(priority = 13)
-    public void buttonChangedColor(){
+    public void secondButtonChangedColor(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
         Assert.assertEquals(getDynamicProperties().buttonChangeColors(),"mt-4 text-danger btn btn-primary");
     }
 
     @Test(priority = 14)
-    public void buttonVisibleAfter5Seconds(){
+    public void thridButtonVisibleAfter5Seconds(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
         Assert.assertTrue(getDynamicProperties().clickOnButtonAfter5Seconds());
+    }
+
+
+    @Test(priority = 15)
+    public void firstButtonDisabledRightAway(){
+        getDynamicProperties().clickOnDynamicElementsFromMenu();
+        Assert.assertFalse(getDynamicProperties().assertClickAfter5());
+    }
+
+    @Test(priority = 16)
+    public void secondButtonDoesNotChangeColorRightAway(){
+        getDynamicProperties().clickOnDynamicElementsFromMenu();
+        Assert.assertEquals(getDynamicProperties().buttonDoesNotChangeColor(),"mt-4 btn btn-primary");
     }
 }
 

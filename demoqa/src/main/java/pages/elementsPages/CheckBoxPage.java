@@ -21,6 +21,7 @@ public class CheckBoxPage extends BasePage{
     //metoda za klik opcije iz menija
 
 
+    //klik na opciju Check box iz Elements menija
     public void clickOnCheckBoxMenu(){
         getDriver().findElement(checkBoxMenu).click();
     }
@@ -36,7 +37,6 @@ public class CheckBoxPage extends BasePage{
 
     //objedinjene metode
     public void completeClicks(){
-//        clickElementsButton();
         clickOnCheckBoxMenu();
         clickOnCheckBoxButton();
     }

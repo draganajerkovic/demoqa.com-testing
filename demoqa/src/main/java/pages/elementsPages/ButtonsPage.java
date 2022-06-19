@@ -31,6 +31,7 @@ public class ButtonsPage extends BasePage{
 
 
 
+    //metoda za klik na opciju Buttons iz elements menija
     public void clickButtonsFromMenu(){
 
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -38,18 +39,24 @@ public class ButtonsPage extends BasePage{
         getDriver().findElement(buttonsFromMenu).click();
 
     }
+
+    //klik na button Double click
     public void clickDoubleclick(){
 
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         a.doubleClick(getDriver().findElement(doubleClickButton) ).perform();
     }
 
+
+    // click na button Right click
     public void clickRightClick(){
 //        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 //        getDriverWait().until(ExpectedConditions.elementToBeClickable(rightClickButton));
         a.contextClick(getDriver().findElement(rightClickButton)).perform();
     }
 
+
+    // klik na button dynamic click
     public void clickButton(){
 //        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
 //        getDriverWait().until(ExpectedConditions.textToBe(clickMeButton,"Click Me"));
@@ -57,20 +64,24 @@ public class ButtonsPage extends BasePage{
     }
 
 
+    // sumirana metoda sva tri klika
     public void clickAll(){
         clickDoubleclick();
         clickRightClick();
         clickButton();
     }
 
+    //asertacija-poruka posle double click
     public String getMessageAfterDoubleClick(){
         return getDriver().findElement(doubleClickMessage).getText();
     }
 
+    // asertacija-poruka posle right click
     public String getMessageAfterRightClick(){
         return getDriver().findElement(rightClickMessage).getText();
     }
 
+    //astertacija-poruka posle left click
     public String getMessageAfterDynamicClick(){
         return getDriver().findElement(dynamicClickMessage).getText();
     }

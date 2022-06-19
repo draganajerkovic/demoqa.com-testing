@@ -17,6 +17,8 @@ public class UploadAndDownload extends BasePage{
 
     File img=new File("sampleFile.jpeg");
 
+
+    //upload slike na stranicu
     public void clickOnUpload(){
         getDriver().findElement(uploadButtton).sendKeys(img.getAbsolutePath());
     }
@@ -26,12 +28,14 @@ public class UploadAndDownload extends BasePage{
     }
 
 
+    //klik na opciju upload/download iz menija
     public void clickOnUploadDownloadFromMenu(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,250)", "");
         getDriver().findElement(uploadDownloadFromMenu).click();
     }
 
+    // poredjenje teksta nakon uploadovanja za asert
     public String getTextAfterUpload(){
        return getDriver().findElement(textUpload).getText();
     }

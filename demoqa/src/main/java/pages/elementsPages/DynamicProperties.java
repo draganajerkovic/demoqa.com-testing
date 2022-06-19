@@ -1,7 +1,9 @@
 package pages.elementsPages;
 
+import com.sun.deploy.security.SelectableSecurityManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,11 +27,12 @@ public class DynamicProperties extends BasePage{
         getDriver().findElement(dynamicElementsMenu).click();
     }
 
+    // metoda koja klikne na button posle pet sekundi, nakon sto je enabled
     public void clickOnButtonAfter5(){
         getDriverWait().until(ExpectedConditions.elementToBeClickable(buttonEnableAfter5));
         getDriver().findElement(buttonEnableAfter5).click();
     }
-
+//metoda za assert da je kliknuto na button posle 5 sekundi
     public boolean assertClickAfter5(){
         return getDriver().findElement(buttonEnableAfter5).isEnabled();
     }
@@ -45,4 +48,10 @@ public class DynamicProperties extends BasePage{
         getDriverWait().until(ExpectedConditions.elementToBeClickable(buttonVisibleAfter5));
         return getDriver().findElement(buttonVisibleAfter5).isDisplayed();
     }
+
+// metoda za dugme dva, da nije promenjena boja na pocetku
+    public String buttonDoesNotChangeColor(){
+        return getDriver().findElement(buttonColorChange).getAttribute("class");
+    }
+
 }
