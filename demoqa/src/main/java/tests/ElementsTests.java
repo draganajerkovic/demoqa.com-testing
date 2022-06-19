@@ -130,6 +130,7 @@ public class ElementsTests extends BaseTests{
     @Test(priority = 15)
     public void firstButtonDisabledRightAway(){
         getDynamicProperties().clickOnDynamicElementsFromMenu();
+        getDynamicProperties().clickOnButtonRightAway();
         Assert.assertFalse(getDynamicProperties().assertClickAfter5());
     }
 

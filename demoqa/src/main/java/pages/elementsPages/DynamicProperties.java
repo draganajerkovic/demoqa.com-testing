@@ -32,6 +32,11 @@ public class DynamicProperties extends BasePage{
         getDriverWait().until(ExpectedConditions.elementToBeClickable(buttonEnableAfter5));
         getDriver().findElement(buttonEnableAfter5).click();
     }
+
+    // click on button right away
+    public void clickOnButtonRightAway(){
+        getDriver().findElement(buttonEnableAfter5).click();
+    }
 //metoda za assert da je kliknuto na button posle 5 sekundi
     public boolean assertClickAfter5(){
         return getDriver().findElement(buttonEnableAfter5).isEnabled();

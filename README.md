@@ -1,8 +1,8 @@
 # demoqa.com-testing
 
-*Project: testing of demoqa.com website
+*Project: ongoing testing of demoqa.com website
 
-*First stage of testing: test features of the elements tab
+*First stage of testing: test features of the elements tab (in progress)
 
 *tests are intepended from one another
 
